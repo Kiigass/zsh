@@ -1,6 +1,10 @@
 #!/bin/bash
 
+# This will make the script exit on every error
+set -e
+
 # Update package list and install prerequisites
+echo "We are running sudo. The password requested is your sudo-pw."
 sudo apt update
 sudo apt install -y git curl zsh
 
