@@ -62,8 +62,13 @@ sed -i 's/plugins=(/plugins=(zsh-autosuggestions /' ~/.zshrc
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 sed -i 's/plugins=(/plugins=(zsh-syntax-highlighting /' ~/.zshrc
 
-# Apply changes
-# source ~/.zshrc
+# Check if bat is installed and add alias to .zshrc
+if command -v bat &> /dev/null; then
+    echo 'alias bat="$(which batcat)"' >> ~/.zshrc
+    echo "Alias for bat added to .zshrc"
+else
+    echo "bat is not installed, skipping alias creation"
+fi
 
 echo -e "\e[31mMesloLGS NF fonts installed. Please set them as your terminal font.\e[0m"
 echo "Installation complete. PLEASE RESTART YOUR TERMINAL/ Computer."
