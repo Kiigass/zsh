@@ -10,6 +10,27 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Set Zsh as the default shell
 chsh -s $(which zsh)
 
+# Download and install MesloLGS NF fonts
+FONT_DIR="$HOME/.local/share/fonts"
+mkdir -p "$FONT_DIR"
+
+declare -a fonts=(
+    "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf"
+    "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf"
+    "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf"
+    "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf"
+)
+
+for font_url in "${fonts[@]}"; do
+    font_file="$FONT_DIR/$(basename "$font_url")"
+    curl -fLo "$font_file" "$font_url"
+done
+
+# Update font cache
+fc-cache -fv
+
+echo "MesloLGS NF fonts installed. Please set them as your terminal font."
+
 # Install Powerlevel10k theme
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 sed -i 's/ZSH_THEME=".*"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
@@ -35,3 +56,4 @@ sed -i 's/plugins=(/plugins=(zsh-syntax-highlighting /' ~/.zshrc
 source ~/.zshrc
 
 echo "Installation complete. Please restart your terminal."
+
