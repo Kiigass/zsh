@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Ensure the script is being run with bash
+if [ -z "$BASH_VERSION" ]; then
+    echo "This script must be run with bash."
+    exit 1
+fi
+
 # This will make the script exit on every error
 set -e
 
@@ -56,7 +62,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 sed -i 's/plugins=(/plugins=(zsh-syntax-highlighting /' ~/.zshrc
 
 # Apply changes
-source ~/.zshrc
+# source ~/.zshrc
 
-echo "Installation complete. Please restart your terminal."
+echo "Installation complete. PLEASE RESTART YOUR TERMINAL."
 
