@@ -65,5 +65,6 @@ sed -i 's/plugins=(/plugins=(zsh-syntax-highlighting /' ~/.zshrc
 # Apply changes
 # source ~/.zshrc
 
-echo "Installation complete. PLEASE RESTART YOUR TERMINAL."
+echo -e "\e[31mMesloLGS NF fonts installed. Please set them as your terminal font.\e[0m"
+echo "Installation complete. PLEASE RESTART YOUR TERMINAL/ Computer."
 
