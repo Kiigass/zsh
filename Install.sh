@@ -39,10 +39,9 @@ echo "MesloLGS NF fonts installed. Please set them as your terminal font."
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 sed -i 's/ZSH_THEME=".*"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
 
-# Install fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-sed -i 's/plugins=(/plugins=(fzf /' ~/.zshrc
+# Install fzf-zsh-plugin
+git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
+sed -i 's/plugins=(/plugins=(fzf-zsh-plugin /' ~/.zshrc
 
 # Install fzf-tab plugin
 git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
