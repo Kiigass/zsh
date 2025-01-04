@@ -18,6 +18,7 @@ sudo apt install -y git curl zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Set Zsh as the default shell
+echo "The password requested is your sudo-pw."
 chsh -s $(which zsh)
 
 # Download and install MesloLGS NF fonts
