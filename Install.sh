@@ -15,7 +15,7 @@ sudo apt update
 sudo apt install -y git curl zsh
 
 # Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Set Zsh as the default shell
 chsh -s $(which zsh)
