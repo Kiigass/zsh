@@ -64,7 +64,8 @@ sed -i 's/plugins=(/plugins=(zsh-syntax-highlighting /' ~/.zshrc
 
 # Check if bat is installed and add alias to .zshrc
 if command -v bat &> /dev/null; then
-    echo 'alias bat="$(which batcat)"' >> ~/.zshrc
+    echo 'alias bat="'$(which batcat)'"' >> ~/.zshrc
+    source ~/.zshrc
     echo "Alias for bat added to .zshrc"
 else
     echo "bat is not installed, skipping alias creation"
